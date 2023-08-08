@@ -10,8 +10,17 @@ export class User {
   @Prop({ required: true, unique: true })
   id: number;
 
-  @Prop({ required: true })
+  @Prop({ required: true, unique: true })
   rank: number;
+
+  @Prop({ required: true, unique: true })
+  rankDaily: number;
+
+  @Prop({ required: true, unique: true })
+  rankWeekly: number;
+
+  @Prop({ required: true, unique: true })
+  rankMontly: number;
 
   @Prop({ required: true })
   avatar: string;

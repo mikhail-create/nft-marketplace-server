@@ -4,6 +4,9 @@ import { NFT } from "src/nft/entities/nft.entity";
 export class User {
   id: number;     // Unique id
   rank: number;     // Rank in top
+  rankDaily: number;     // Rank in daily top
+  rankWeekly: number;     // Rank in weekly top
+  rankMonthly: number;     // Rank in monthly top
   avatar: string;     // Avatar img url
   username: string;     // Username
   email: string;      // User email
@@ -19,6 +22,9 @@ export class User {
     username: string,
     email: string,
     rank: number,
+    rankDaily: number,
+    rankWeekly: number,
+    rankMonthly: number,
     change: number,
     NFTSolds: number,
     volume: number,
@@ -27,6 +33,9 @@ export class User {
     this.username = username;
     this.email = email;
     this.rank = rank;
+    this.rankDaily = rankDaily;
+    this.rankWeekly = rankWeekly;
+    this.rankMonthly = rankMonthly;
     this.change = change;
     this.NFTSolds = NFTSolds;
     this.volume = volume;
