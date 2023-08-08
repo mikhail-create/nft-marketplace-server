@@ -19,7 +19,7 @@ export class FileController {
 
   @Get('avatar/:id')
   findOne(@Param('id') id: string, @Res() res: any) {
-    res.sendFile(`avatar-img--${id}`, { root: 'var/task/public/avatars' });
+    res.sendFile(`avatar-img--${id}.webp`, { root: 'uploads/avatars' });
   }
 
   @Patch(':id')
