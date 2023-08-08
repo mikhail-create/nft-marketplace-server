@@ -1,3 +1,5 @@
+import { User } from "src/user/entities/user.entity";
+
 export class NFT {
   id: number;     // Unique id
   name: string;     // NFT name
