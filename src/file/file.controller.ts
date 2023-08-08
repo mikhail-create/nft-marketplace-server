@@ -5,7 +5,7 @@ import { UpdateFileDto } from './dto/update-file.dto';
 
 @Controller('file')
 export class FileController {
-  constructor(private readonly fileService: FileService) {}
+  constructor(private readonly fileService: FileService) { }
 
   @Post()
   create(@Body() createFileDto: CreateFileDto) {
@@ -19,7 +19,7 @@ export class FileController {
 
   @Get('avatar/:id')
   findOne(@Param('id') id: string, @Res() res: any) {
-    res.sendFile(`avatar-img--${id}.webp`, { root: 'uploads/avatars' });
+    res.sendFile(`avatar-img--${id}`, { root: 'var/task/public/avatars' });
   }
 
   @Patch(':id')
