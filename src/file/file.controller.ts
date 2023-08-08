@@ -2,14 +2,19 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, Res } from '@nestjs/
 import { FileService } from './file.service';
 import { CreateFileDto } from './dto/create-file.dto';
 import { UpdateFileDto } from './dto/update-file.dto';
+import path, { join } from 'path';
+import { createReadStream } from 'fs';
 
 @Controller('file')
 export class FileController {
   constructor(private readonly fileService: FileService) { }
 
-  @Post()
-  create(@Body() createFileDto: CreateFileDto) {
-    return this.fileService.create(createFileDto);
+
+  @Get('avatar/:id')
+  findOne(@Param('id') id: string, @Res() res: any) {
+    // res.sendFile(`avatar-img--${id}.webp`, { root: 'uploads/avatars' });
+    const file = createReadStream(join(process.cwd(), `uploads/avatars/avatar-img--${id}.webp`));
+    file.pipe(res);
   }
 
   @Get()
@@ -17,9 +22,9 @@ export class FileController {
     return this.fileService.findAll();
   }
 
-  @Get('avatar/:id')
-  findOne(@Param('id') id: string, @Res() res: any) {
-    res.sendFile(`avatar-img--${id}.webp`, { root: 'uploads/avatars' });
+  @Post()
+  create(@Body() createFileDto: CreateFileDto) {
+    return this.fileService.create(createFileDto);
   }
 
   @Patch(':id')
