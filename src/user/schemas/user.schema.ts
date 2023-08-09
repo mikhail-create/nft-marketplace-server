@@ -20,7 +20,7 @@ export class User {
   rankWeekly: number;
 
   @Prop({ required: true, unique: true })
-  rankMontly: number;
+  rankMonthly: number;
 
   @Prop({ required: true })
   avatar: string;

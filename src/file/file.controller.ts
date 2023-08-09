@@ -12,7 +12,6 @@ export class FileController {
 
   @Get('avatar/:id')
   findOne(@Param('id') id: string, @Res() res: any) {
-    // res.sendFile(`avatar-img--${id}.webp`, { root: 'uploads/avatars' });
     const file = createReadStream(join(process.cwd(), `uploads/avatars/avatar-img--${id}.webp`));
     file.pipe(res);
   }
